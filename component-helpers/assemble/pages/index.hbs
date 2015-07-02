@@ -1,0 +1,15 @@
+---
+title: Index – Project-Overview
+layout: tpl.hbs
+---
+
+
+
+{{#with rb_richtext}}
+	{{> rb_richtext}}
+{{/with}}
+
+{{#mergeJSON rb_richtext 'hello: "custom content for richtext"'}}
+	{{> rb_richtext}}
+{{/mergeJSON}}
+

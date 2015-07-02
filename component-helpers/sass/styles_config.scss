@@ -1,0 +1,5 @@
+@import "sass/**/*.scss";
+
+@import '../sources/sass/rb_richtext';
+
+@include rb_generate_global_styles($breakpointConfigs);
