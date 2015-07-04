@@ -4,7 +4,217 @@ rb-richtext
 ----------------------------------------------------------
 
 **********************************************************/
+//Headers
+$richtext-font-h1: sans-serif !default;
+$richtext-fontsize-h1: rb-rem-calc(29) !default;
+$richtext-lineheight-h1: rb-rem-calc(32) !default;
+$richtext-color-h1: #666 !default;
+$richtext-margin-h1: rb-rem-calc(0 0 35) !default;
+
+$richtext-font-h2: sans-serif !default;
+$richtext-fontsize-h2:  rb-rem-calc(29) !default;
+$richtext-lineheight-h2: rb-rem-calc(32) !default;
+$richtext-color-h2: #666 !default;
+$richtext-margin-h2: rb-rem-calc(0 0 20) !default;
+
+$richtext-font-h3: sans-serif !default;
+$richtext-fontsize-h3: rb-rem-calc(24) !default;
+$richtext-lineheight-h3: rb-rem-calc(29) !default;
+$richtext-color-h3: #666 !default;
+$richtext-margin-h3: rb-rem-calc(0 0 15) !default;
+
+//Text (paragraph/lists/
+$richtext-fontsize-text: rb-rem-calc(18) !default;
+$richtext-lineheight-text: rb-rem-calc(24) !default;
+$richtext-color-text: #666 !default;
+$richtext-margin-text: rb-rem-calc(0 0 30) !default;
+
+
+//List-items
+$richtext-list-style-ol: decimal !default;
+$richtext-margin-list-style: rb-rem-calc(20) !default;
+
 .rb-richtext {
 
+	@include rb-respond-to(xl) {
+		> h1 {
+			margin: $richtext-margin-h1;
+			font-family: $richtext-font-h1;
+			font-size: $richtext-fontsize-h1;
+			line-height: $richtext-lineheight-h1;
+		}
+
+		> h2 {
+			margin: $richtext-margin-h2;
+			font-family: $richtext-font-h2;
+			font-size: $richtext-fontsize-h2;
+			 line-height: $richtext-lineheight-h2;
+		}
+
+		> h3 {
+			margin: $richtext-margin-h3;
+			font-family: $richtext-font-h3;
+			font-size: $richtext-fontsize-h3;
+			line-height: $richtext-lineheight-h3;
+		}
+	}
+
+	@include rb-respond-to(m) {
+		 h1 {
+			font-size: 160px;
+		}
+	}
+
+
+
+
+	//Global Styles
+	width: 100%;
+
+	//Header
+	> h1 {
+		font-weight: 700;
+		text-transform: uppercase;
+		color: $richtext-color-h1;
+	}
+
+	> h2 {
+		color: $richtext-color-h2;
+	}
+
+	> h3 {
+		color: $richtext-color-h3;
+	}
+
+
+	//Text
+	p {
+		margin: $richtext-margin-text;
+		font-size: $richtext-fontsize-text;
+		line-height: $richtext-lineheight-text;
+		color: $richtext-color-text;
+
+		&.is-align-right {
+			text-align: right;
+		}
+
+		&.is-align-center {
+			text-align: center;
+		}
+
+		&.is-justify {
+			text-align: justify;
+		}
+	}
+
+	> ol,
+	> ul {
+		margin: $richtext-margin-text;
+		font-size: $richtext-fontsize-text;
+		line-height: $richtext-lineheight-text;
+		color: $richtext-color-text;
+
+		li {
+			line-height: $richtext-lineheight-text;
+		}
+	}
+
+	ul {
+
+		ul,
+		ol {
+			margin-top: 6px;
+		}
+
+		> li {
+			position: relative;
+			margin-bottom: 10px;
+			padding-left: 20px;
+
+			&::before {
+				content: "";
+				position: absolute;
+				top: 8px;
+				left: 3px;
+				width: 6px;
+				height: 6px;
+				border-radius: 50%;
+				background: #000;
+			}
+		}
+
+	}
+
+	ol {
+		list-style: $richtext-list-style-ol;
+		margin-left: $richtext-margin-list-style;
+
+		ul,
+		ol {
+			margin-top: 6px;
+		}
+
+		> li {
+			margin-bottom: 10px;
+		}
+	}
+
+	//Different Stylings
+	a {
+		color: green;
+
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
+	}
+
+	.underline {
+		text-decoration: underline;
+	}
+	.strike {
+		text-decoration: line-through;
+	}
+	strong, b {
+		font-weight: 600;
+	}
+
+	em, i {
+		font-style: italic;
+	}
+
+	//Media-box
+	.media-box {
+		position: relative;
+		margin: 20px 0;
+
+		img {
+			width: 100%;
+		}
+
+		figcaption {
+			position: relative;
+			width: 100%;
+			padding: rb-rem-calc(10 5 0);
+			font-family: sans-serif;
+			font-size: rb-rem-calc(13);
+			line-height: rb-rem-calc(19);
+			color: $richtext-color-text;
+		}
+
+		&.is-floated-left {
+			float: left;
+			top: 6px;
+			width: 55%;
+			padding: rb-rem-calc(0 20 20 0);
+		}
+
+		&.is-floated-right {
+			float: right;
+			top: 6px;
+			width: 55%;
+			padding: rb-rem-calc(0 0 20 20);
+		}
+	}
 
 }

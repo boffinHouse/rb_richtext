@@ -4,30 +4,45 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>rb-richtext</title>
-		<link href="dist/css/styles.css" rel="stylesheet" />
-		<script src="dist/js/object-assign.js"></script>
+		<link href="css/styles.css" rel="stylesheet" />
+		<script src="js/object-assign.js"></script>
 
 		<script src="https://boffinhouse.github.io/rawblock/sources/js/libs/rb-life.js"></script>
 
 	</head>
 	<body>
-		<form id="libchooser">
-			<label>
-				<input type="radio" name="domlib"
-				       value="rbdom"
-				       data-url="https://boffinhouse.github.io/rawblock/sources/js/libs/dom.js"
-				       checked />
-				rbdom
-			</label>
-			<label>
-				<input type="radio" name="domlib"
-				       value="jquery"
-						data-url="http://code.jquery.com/jquery-2.1.4.js" />
-				jquery
-			</label>
-		</form>
-		{{> body }}
+		<header class="rb-page-header">
 
+
+			<div class="page-header-block is-col-group is-gutter">
+				<div class="is-size-auto is-offset-left">
+					<div class="rb-logo">
+						<h1 class="logo-title">rb_richtext</h1>
+					</div>
+				</div>
+				<div class="is-size-auto is-offset-right">
+					<form class="rb-libchooser" id="libchooser">
+						<label>
+							<input type="radio" name="domlib"
+							       value="rbdom"
+							       data-url="https://boffinhouse.github.io/rawblock/sources/js/libs/dom.js"
+							       checked />
+							rbdom
+						</label>
+						<label>
+							<input type="radio" name="domlib"
+							       value="jquery"
+							       data-url="http://code.jquery.com/jquery-2.1.4.js" />
+							jquery
+						</label>
+					</form>
+				</div>
+			</div>
+
+		</header>
+		<main class="rb-page-main">
+			{{> body }}
+		</main>
 		<script>
 			(function(){
 				var input;
@@ -52,7 +67,7 @@
 		</script>
 
 		<script>
-			document.write('<script src="sources/js/' + window.moduleFilename + '.js"><\/script>')
+			document.write('<script src="../sources/js/' + window.moduleFilename + '.js"><\/script>')
 		</script>
 	</body>
 </html>

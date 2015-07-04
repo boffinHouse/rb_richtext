@@ -2,14 +2,10 @@
 title: Index – Project-Overview
 layout: tpl.hbs
 ---
+<div class="is-col-group is-gutter">
+	<div class="is-size-70">
+		{{> rb_richtext}}
+	</div>
+</div>
 
-
-
-{{#with rb_richtext}}
-	{{> rb_richtext}}
-{{/with}}
-
-{{#mergeJSON rb_richtext 'hello: "custom content for richtext"'}}
-	{{> rb_richtext}}
-{{/mergeJSON}}
 
