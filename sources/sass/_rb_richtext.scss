@@ -9,7 +9,7 @@ $richtext-font-h1: sans-serif !default;
 $richtext-fontsize-h1: rb-rem-calc(29) !default;
 $richtext-lineheight-h1: rb-rem-calc(32) !default;
 $richtext-color-h1: #666 !default;
-$richtext-margin-h1: rb-rem-calc(0 0 35) !default;
+$richtext-margin-h1: rb-rem-calc(0 0 25) !default;
 
 $richtext-font-h2: $richtext-font-h1 !default;
 $richtext-fontsize-h2:  rb-rem-calc(29) !default;
@@ -23,38 +23,142 @@ $richtext-lineheight-h3: rb-rem-calc(29) !default;
 $richtext-color-h3: #666 !default;
 $richtext-margin-h3: rb-rem-calc(0 0 15) !default;
 
-//Text (paragraph/lists/
+//Text (paragraph/lists)
+$richtext-font-text: sans-serif !default;
 $richtext-fontsize-text: rb-rem-calc(18) !default;
 $richtext-lineheight-text: rb-rem-calc(24) !default;
 $richtext-color-text: #666 !default;
 $richtext-margin-text: rb-rem-calc(0 0 30) !default;
+$richtext-link-color: blue !default;
 
 //List-items
 $richtext-list-style-ol: decimal !default;
-$richtext-margin-list-style: rb-rem-calc(20) !default;
+$richtext-margin-list-style: rb-rem-calc(27) !default;
+
+//Figure
+$richtext-fontsize-figcaption: rb-rem-calc(14) !default;
+$richtext-lineheight-figcaption: rb-rem-calc(22) !default;
+
+//Blockquote
+$richtext-font-blockquote: serif !default;;
+$richtext-fontsize-blockquote: rb-rem-calc(42) !default;;
+$richtext-lineheight-blockquote: rb-rem-calc(52) !default;;
+$richtext-fontstyle-blockquote: italic !default;
+$richtext-fontweight-blockquote: 600 !default;
+$richtext-margin-blockquote: rb-rem-calc(0 0 40) !default;;
+
+//Table
+$richtext-font-table: $richtext-font-text !default;
+$richtext-fontsize-table: $richtext-fontsize-text !default;
+$richtext-lineheight-table: rb-rem-calc(24) !default;
+$richtext-color-table: #666 !default;
+$richtext-margin-table: rb-rem-calc(0 0 30) !default;
+$richtext-padding-table: rb-rem-calc(20) !default;
+$richtext-border-tr-thead: 4px solid #666 !default;
+$richtext-border-tr-tbody: 2px solid #666 !default;
+$richtext-background-odd: #ccc !default;
 
 .rb-richtext {
 
+	//Table
+	.table {
+		width: 100%;
+	}
+
+	thead {
+
+		tr {
+			border-bottom: $richtext-border-tr-thead;
+		}
+
+		th {
+			color: $richtext-color-table;
+		}
+	}
+
+	tbody {
+
+		tr {
+			border-bottom: $richtext-border-tr-tbody;
+		}
+
+		tr:nth-child(odd) {
+			background: $richtext-background-odd;
+		}
+
+		th {
+			padding: $richtext-padding-table;
+		}
+
+		td {
+			padding: $richtext-padding-table;
+			border-right: $richtext-border-tr-tbody;
+			color: $richtext-color-table;
+
+			&:first-child {
+				border-left: $richtext-border-tr-tbody;
+			}
+		}
+	}
+
 	@include rb-respond-to(all) {
-		$richtext-fontsize-h1: 70px;
+
 		> h1 {
 			margin: $richtext-margin-h1;
 			font-size: $richtext-fontsize-h1;
 			line-height: $richtext-lineheight-h1;
 		}
+
+		> h2 {
+			margin: $richtext-margin-h2;
+			font-size: $richtext-fontsize-h2;
+			line-height: $richtext-lineheight-h2;
+		}
+
+		> h3 {
+			margin: $richtext-margin-h3;
+			font-size: $richtext-fontsize-h3;
+			line-height: $richtext-lineheight-h3;
+		}
+
+		p {
+			margin: $richtext-margin-text;
+			font-size: $richtext-fontsize-text;
+			line-height: $richtext-lineheight-text;
+		}
+
+		> ol,
+		> ul {
+			margin: $richtext-margin-text;
+			font-size: $richtext-fontsize-text;
+			line-height: $richtext-lineheight-text;
+
+			li {
+				line-height: $richtext-lineheight-text;
+			}
+		}
+
+		.richtext-mediabox {
+			margin: $richtext-margin-text;
+
+			figcaption {
+				font-size: $richtext-fontsize-figcaption;
+				line-height: $richtext-lineheight-figcaption;
+			}
+		}
+
+		blockquote {
+			p {
+				font-size: $richtext-fontsize-blockquote;
+				line-height: $richtext-lineheight-blockquote;
+			}
+		}
 	}
 
 	@include rb-respond-to(xl) {
-		$richtext-fontsize-h1: 16px;
+
 
 	}
-
-	@include rb-respond-to(m) {
-		$richtext-fontsize-h1: 160px;
-
-	}
-
-
 
 
 	//Global Styles
@@ -79,9 +183,7 @@ $richtext-margin-list-style: rb-rem-calc(20) !default;
 
 	//Text
 	p {
-		margin: $richtext-margin-text;
-		font-size: $richtext-fontsize-text;
-		line-height: $richtext-lineheight-text;
+		font-family: $richtext-font-text;
 		color: $richtext-color-text;
 
 		&.is-align-right {
@@ -99,14 +201,8 @@ $richtext-margin-list-style: rb-rem-calc(20) !default;
 
 	> ol,
 	> ul {
-		margin: $richtext-margin-text;
-		font-size: $richtext-fontsize-text;
-		line-height: $richtext-lineheight-text;
+		font-family: $richtext-font-text;
 		color: $richtext-color-text;
-
-		li {
-			line-height: $richtext-lineheight-text;
-		}
 	}
 
 	ul {
@@ -129,7 +225,7 @@ $richtext-margin-list-style: rb-rem-calc(20) !default;
 				width: 6px;
 				height: 6px;
 				border-radius: 50%;
-				background: #000;
+				background: $richtext-color-text;
 			}
 		}
 
@@ -141,17 +237,17 @@ $richtext-margin-list-style: rb-rem-calc(20) !default;
 
 		ul,
 		ol {
-			margin-top: 6px;
+			margin-top: rb-rem-calc(6);
 		}
 
 		> li {
-			margin-bottom: 10px;
+			margin-bottom: rb-rem-calc(10);
 		}
 	}
 
 	//Different Stylings
 	a {
-		color: green;
+		color: $richtext-link-color;
 
 		&:hover,
 		&:focus {
@@ -173,10 +269,10 @@ $richtext-margin-list-style: rb-rem-calc(20) !default;
 		font-style: italic;
 	}
 
+
 	//Media-box
-	.media-box {
+	.richtext-mediabox {
 		position: relative;
-		margin: 20px 0;
 
 		img {
 			width: 100%;
@@ -185,26 +281,67 @@ $richtext-margin-list-style: rb-rem-calc(20) !default;
 		figcaption {
 			position: relative;
 			width: 100%;
-			padding: rb-rem-calc(10 5 0);
-			font-family: sans-serif;
-			font-size: rb-rem-calc(13);
-			line-height: rb-rem-calc(19);
+			padding: rb-rem-calc(10 0);
+			font-family: $richtext-font-text;
 			color: $richtext-color-text;
+		}
+
+		.richtext-copyright {
+			position: relative;
+			margin-left: 5px;
+			padding-right: rb-rem-calc(20);
+			font-weight: 400;
+
+			&::before {
+				content: ' - '
+			}
+
+			&::after {
+				content: ' \00a9'; //copyright sign
+			}
 		}
 
 		&.is-floated-left {
 			float: left;
 			top: 6px;
-			width: 55%;
+			margin: 0;
 			padding: rb-rem-calc(0 20 20 0);
 		}
 
 		&.is-floated-right {
 			float: right;
 			top: 6px;
-			width: 55%;
+			margin: 0;
 			padding: rb-rem-calc(0 0 20 20);
 		}
 	}
+
+	blockquote {
+		margin: $richtext-margin-blockquote;
+
+		p {
+			position: relative;
+			font-family: $richtext-font-blockquote;
+			font-style: $richtext-fontstyle-blockquote;
+			font-weight: $richtext-fontweight-blockquote;
+		}
+
+
+		&::before {
+			content: '';
+			position: absolute;
+			left: -30px;
+			width: 100px;
+			height: 200px;
+			font-size: rb-rem-calc(60);
+		}
+
+		cite {
+			font-style: normal;
+			color: $richtext-color-text;
+		}
+	}
+
+
 
 }
