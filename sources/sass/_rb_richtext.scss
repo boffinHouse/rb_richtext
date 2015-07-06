@@ -11,13 +11,13 @@ $richtext-lineheight-h1: rb-rem-calc(32) !default;
 $richtext-color-h1: #666 !default;
 $richtext-margin-h1: rb-rem-calc(0 0 35) !default;
 
-$richtext-font-h2: sans-serif !default;
+$richtext-font-h2: $richtext-font-h1 !default;
 $richtext-fontsize-h2:  rb-rem-calc(29) !default;
 $richtext-lineheight-h2: rb-rem-calc(32) !default;
 $richtext-color-h2: #666 !default;
 $richtext-margin-h2: rb-rem-calc(0 0 20) !default;
 
-$richtext-font-h3: sans-serif !default;
+$richtext-font-h3: $richtext-font-h1 !default;
 $richtext-fontsize-h3: rb-rem-calc(24) !default;
 $richtext-lineheight-h3: rb-rem-calc(29) !default;
 $richtext-color-h3: #666 !default;
@@ -29,40 +29,29 @@ $richtext-lineheight-text: rb-rem-calc(24) !default;
 $richtext-color-text: #666 !default;
 $richtext-margin-text: rb-rem-calc(0 0 30) !default;
 
-
 //List-items
 $richtext-list-style-ol: decimal !default;
 $richtext-margin-list-style: rb-rem-calc(20) !default;
 
 .rb-richtext {
 
-	@include rb-respond-to(xl) {
+	@include rb-respond-to(all) {
+		$richtext-fontsize-h1: 70px;
 		> h1 {
 			margin: $richtext-margin-h1;
-			font-family: $richtext-font-h1;
 			font-size: $richtext-fontsize-h1;
 			line-height: $richtext-lineheight-h1;
 		}
+	}
 
-		> h2 {
-			margin: $richtext-margin-h2;
-			font-family: $richtext-font-h2;
-			font-size: $richtext-fontsize-h2;
-			 line-height: $richtext-lineheight-h2;
-		}
+	@include rb-respond-to(xl) {
+		$richtext-fontsize-h1: 16px;
 
-		> h3 {
-			margin: $richtext-margin-h3;
-			font-family: $richtext-font-h3;
-			font-size: $richtext-fontsize-h3;
-			line-height: $richtext-lineheight-h3;
-		}
 	}
 
 	@include rb-respond-to(m) {
-		 h1 {
-			font-size: 160px;
-		}
+		$richtext-fontsize-h1: 160px;
+
 	}
 
 
@@ -73,16 +62,17 @@ $richtext-margin-list-style: rb-rem-calc(20) !default;
 
 	//Header
 	> h1 {
-		font-weight: 700;
-		text-transform: uppercase;
+		font-family: $richtext-font-h1;
 		color: $richtext-color-h1;
 	}
 
 	> h2 {
+		font-family: $richtext-font-h2;
 		color: $richtext-color-h2;
 	}
 
 	> h3 {
+		font-family: $richtext-font-h3;
 		color: $richtext-color-h3;
 	}
 
