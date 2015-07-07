@@ -15,7 +15,7 @@ $richtext-font-h2: $richtext-font-h1 !default;
 $richtext-fontsize-h2:  rb-rem-calc(29) !default;
 $richtext-lineheight-h2: rb-rem-calc(32) !default;
 $richtext-color-h2: #666 !default;
-$richtext-margin-h2: rb-rem-calc(0 0 20) !default;
+$richtext-margin-h2: rb-rem-calc(0 0 10) !default;
 
 $richtext-font-h3: $richtext-font-h1 !default;
 $richtext-fontsize-h3: rb-rem-calc(24) !default;
@@ -60,6 +60,11 @@ $richtext-lineheight-thead: rb-rem-calc(24) !default;
 $richtext-color-thead: #1a90bb !default;
 $richtext-padding-thead: rb-rem-calc(15 20) !default;
 $richtext-border-tr-thead: 4px solid #666 !default;
+
+$richtext-fontsize-tfoot: rb-rem-calc(16) !default;
+$richtext-lineheight-tfoot: rb-rem-calc(24) !default;
+$richtext-color-tfoot: #1a90bb !default;
+$richtext-padding-tfoot: rb-rem-calc(10 20) !default;
 
 $richtext-border-tr-tbody: 4px solid #666 !default;
 $richtext-background-tr-odd: #ccc !default;
@@ -131,8 +136,7 @@ $richtext-background-tr-even: transparent !default;
 			}
 		}
 
-		tbody,
-		tfoot {
+		tbody {
 			td,
 			th {
 				padding: $richtext-padding-table;
@@ -144,9 +148,9 @@ $richtext-background-tr-even: transparent !default;
 		tfoot {
 			td,
 			th {
-				padding: $richtext-padding-table;
-				font-size: $richtext-fontsize-table;
-				line-height: $richtext-lineheight-table;
+				padding: $richtext-padding-tfoot;
+				font-size: $richtext-fontsize-tfoot;
+				line-height: $richtext-lineheight-tfoot;
 			}
 		}
 	}
@@ -347,10 +351,6 @@ $richtext-background-tr-even: transparent !default;
 		}
 
 		th {
-			color: $richtext-color-table;
-		}
-
-		td {
 			color: $richtext-color-thead;
 		}
 	}
@@ -381,7 +381,7 @@ $richtext-background-tr-even: transparent !default;
 
 	tfoot {
 		td {
-			color: $richtext-color-table;
+			color: $richtext-color-tfoot;
 		}
 	}
 

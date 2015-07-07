@@ -1,14 +1,14 @@
 {
-  "name": "rb_boilerplate",
+  "name": "rb_richtext",
   "version": "0.1.0",
   "description": "",
-  "main": "sources/js/rb_boilerplate.js",
+  "main": "sources/js/rb_richtext.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/boffinHouse/rb_boilerplate.git"
+    "url": "git+https://github.com/boffinHouse/rb_richtext.git"
   },
   "author": [
     {
@@ -24,9 +24,9 @@
   ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/boffinHouse/rb-rb_boilerplate/issues"
+    "url": "https://github.com/boffinHouse/rb_richtext/issues"
   },
-  "homepage": "https://github.com/boffinHouse/rb_boilerplate#readme",
+  "homepage": "https://github.com/boffinHouse/rb_richtext#readme",
   "devDependencies": {
     "assemble": "~0.4.42",
     "grunt": "^0.4.5",
