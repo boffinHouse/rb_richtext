@@ -55,7 +55,7 @@ $richtext-color-table: #666 !default;
 $richtext-margin-table: rb-rem-calc(0 0 30) !default;
 $richtext-padding-table: rb-rem-calc(20) !default;
 $richtext-border-tr-thead: 4px solid #666 !default;
-$richtext-border-tr-tbody: 2px solid #666 !default;
+$richtext-border-tr-tbody: 4px solid #666 !default;
 $richtext-background-odd: #ccc !default;
 
 .rb-richtext {
@@ -74,7 +74,13 @@ $richtext-background-odd: #ccc !default;
 		th {
 			color: $richtext-color-table;
 		}
+
+		td {
+			color: $richtext-color-table;
+		}
 	}
+
+
 
 	tbody {
 
@@ -100,6 +106,7 @@ $richtext-background-odd: #ccc !default;
 			}
 		}
 	}
+
 
 	@include rb-respond-to(all) {
 
