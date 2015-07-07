@@ -6,8 +6,8 @@ rb-richtext
 **********************************************************/
 //Headers
 $richtext-font-h1: sans-serif !default;
-$richtext-fontsize-h1: rb-rem-calc(29) !default;
-$richtext-lineheight-h1: rb-rem-calc(32) !default;
+$richtext-fontsize-h1: rb-rem-calc(55) !default;
+$richtext-lineheight-h1: rb-rem-calc(64) !default;
 $richtext-color-h1: #666 !default;
 $richtext-margin-h1: rb-rem-calc(0 0 25) !default;
 
@@ -54,59 +54,18 @@ $richtext-lineheight-table: rb-rem-calc(24) !default;
 $richtext-color-table: #666 !default;
 $richtext-margin-table: rb-rem-calc(0 0 30) !default;
 $richtext-padding-table: rb-rem-calc(20) !default;
+
+$richtext-fontsize-thead: rb-rem-calc(20) !default;
+$richtext-lineheight-thead: rb-rem-calc(24) !default;
+$richtext-color-thead: #1a90bb !default;
+$richtext-padding-thead: rb-rem-calc(15 20) !default;
 $richtext-border-tr-thead: 4px solid #666 !default;
+
 $richtext-border-tr-tbody: 4px solid #666 !default;
-$richtext-background-odd: #ccc !default;
+$richtext-background-tr-odd: #ccc !default;
+$richtext-background-tr-even: transparent !default;
 
 .rb-richtext {
-
-	//Table
-	.table {
-		width: 100%;
-	}
-
-	thead {
-
-		tr {
-			border-bottom: $richtext-border-tr-thead;
-		}
-
-		th {
-			color: $richtext-color-table;
-		}
-
-		td {
-			color: $richtext-color-table;
-		}
-	}
-
-
-
-	tbody {
-
-		tr {
-			border-bottom: $richtext-border-tr-tbody;
-		}
-
-		tr:nth-child(odd) {
-			background: $richtext-background-odd;
-		}
-
-		th {
-			padding: $richtext-padding-table;
-		}
-
-		td {
-			padding: $richtext-padding-table;
-			border-right: $richtext-border-tr-tbody;
-			color: $richtext-color-table;
-
-			&:first-child {
-				border-left: $richtext-border-tr-tbody;
-			}
-		}
-	}
-
 
 	@include rb-respond-to(all) {
 
@@ -160,11 +119,36 @@ $richtext-background-odd: #ccc !default;
 				line-height: $richtext-lineheight-blockquote;
 			}
 		}
-	}
 
-	@include rb-respond-to(xl) {
+		table {
+			margin: $richtext-margin-table;
+		}
 
+		thead {
+			th {
+				padding: $richtext-padding-thead;
+				font-size: $richtext-fontsize-thead;
+			}
+		}
 
+		tbody,
+		tfoot {
+			td,
+			th {
+				padding: $richtext-padding-table;
+				font-size: $richtext-fontsize-table;
+				line-height: $richtext-lineheight-table;
+			}
+		}
+
+		tfoot {
+			td,
+			th {
+				padding: $richtext-padding-table;
+				font-size: $richtext-fontsize-table;
+				line-height: $richtext-lineheight-table;
+			}
+		}
 	}
 
 
@@ -188,7 +172,7 @@ $richtext-background-odd: #ccc !default;
 	}
 
 
-	//Text
+	//Paragraph
 	p {
 		font-family: $richtext-font-text;
 		color: $richtext-color-text;
@@ -206,6 +190,7 @@ $richtext-background-odd: #ccc !default;
 		}
 	}
 
+	//List
 	> ol,
 	> ul {
 		font-family: $richtext-font-text;
@@ -229,7 +214,7 @@ $richtext-background-odd: #ccc !default;
 				position: absolute;
 				top: 8px;
 				left: 3px;
-				width: 6px;
+				width: rb-rem-calc(6);
 				height: 6px;
 				border-radius: 50%;
 				background: $richtext-color-text;
@@ -277,7 +262,7 @@ $richtext-background-odd: #ccc !default;
 	}
 
 
-	//Media-box
+	//Mediabox
 	.richtext-mediabox {
 		position: relative;
 
@@ -323,6 +308,7 @@ $richtext-background-odd: #ccc !default;
 		}
 	}
 
+	//Blockquote
 	blockquote {
 		margin: $richtext-margin-blockquote;
 
@@ -346,6 +332,56 @@ $richtext-background-odd: #ccc !default;
 		cite {
 			font-style: normal;
 			color: $richtext-color-text;
+		}
+	}
+
+	//Table
+	.table {
+		width: 100%;
+	}
+
+	thead {
+
+		tr {
+			border-bottom: $richtext-border-tr-thead;
+		}
+
+		th {
+			color: $richtext-color-table;
+		}
+
+		td {
+			color: $richtext-color-thead;
+		}
+	}
+
+	tbody {
+
+		tr {
+			border-bottom: $richtext-border-tr-tbody;
+		}
+
+		tr:nth-child(odd) {
+			background: $richtext-background-tr-odd;
+		}
+
+		tr:nth-child(even) {
+			background: $richtext-background-tr-even;
+		}
+
+		td {
+			border-right: $richtext-border-tr-tbody;
+			color: $richtext-color-table;
+
+			&:first-child {
+				border-left: $richtext-border-tr-tbody;
+			}
+		}
+	}
+
+	tfoot {
+		td {
+			color: $richtext-color-table;
 		}
 	}
 
