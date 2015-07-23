@@ -4,9 +4,15 @@ dev
 dist
 bower_components
 index.html
-
+scaffold.js
+tmp
+Gruntfile.js
+.editorconfig
+component-helpers
+tests
 .sass-cache
 .css
+
 
 .DS_Store
 .idea

@@ -39,14 +39,19 @@ var write = function(file){
 var writeAll = function(){
 
 
-	['sources/assemble/rb_boilerplate.hbs',
+	['sources/assemble/partials/_blocks/rb_boilerplate.hbs',
+		'README.md',
 		'package.json',
-		'sources/data/rb_boilerplate.json',
-		'sources/js/rb_boilerplate.js',
-		'sources/sass/_rb_boilerplate.scss',
-		'component-helpers/assemble/layouts/tpl.hbs',
+		'sources/assemble/data/rb_boilerplate.json',
+		'sources/js/modules/rb_boilerplate.js',
+		'sources/sass/_blocks/_rb_boilerplate.scss',
+		'component-helpers/assemble/layouts/default_tpl.hbs',
 		'component-helpers/assemble/pages/index.hbs',
-		'component-helpers/sass/styles_config.scss',].forEach(write);
+		'component-helpers/sass/styles_config.scss',
+		'component-helpers/sass/styles_config.scss',
+		'tests/intern.js',
+		'tests/unit/boilerplate.js',
+	].forEach(write);
 };
 
 rl.question('Name of your project: ', function(name) {

@@ -58,7 +58,7 @@
 			watch: {
 				scss: {
 					files: ['sources/sass/**/*.scss'],
-					tasks: ['build']
+					tasks: ['css']
 				},
 				assemble: {
 					files: ['sources/assemble/**/*.hbs', 'component-helpers/assemble/**/*.hbs', 'sources/data/**/*.json'],
@@ -97,7 +97,7 @@
 			}
 		});
 
-		grunt.registerTask( 'css', ['generate-tmp-styles-scss', 'sass', 'autoprefixer', 'clean:tmp']);
+		grunt.registerTask( 'css', ['clean:tmp', 'generate-tmp-styles-scss', 'sass', 'autoprefixer']);
 		grunt.registerTask('build', [ 'clean:dist', 'copy:js', 'css', 'assemble']);
 		grunt.registerTask('default', ['build', 'watch']);
 
