@@ -57,20 +57,20 @@
 			},
 			watch: {
 				scss: {
-					files: ['sources/sass/**/*.scss'],
+					files: ['sources/components/**/*.scss', 'component-helpers/sass/**/*.scss'],
 					tasks: ['css']
 				},
 				assemble: {
-					files: ['sources/assemble/**/*.hbs', 'component-helpers/assemble/**/*.hbs', 'sources/data/**/*.json'],
+					files: ['sources/components/**/*.hbs', 'component-helpers/assemble/**/*.hbs', 'sources/components/**/*.json'],
 					tasks: ['assemble']
 				}
 			},
 			assemble: {
 				options: {
-					data: 'sources/data/**/*.{json,yml}',
+					data: 'sources/components/**/*.{json,yml}',
 					helpers: ['component-helpers/assemble/helper/*.js'],
 					layoutdir: 'component-helpers/assemble/layouts/',
-					partials: ['sources/assemble/**/*.hbs']
+					partials: ['sources/components/**/*.hbs']
 				},
 				dev: {
 					options: {
