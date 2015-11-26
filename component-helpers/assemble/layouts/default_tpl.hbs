@@ -5,9 +5,13 @@
 		<meta charset="utf-8" />
 		<title>rb-richtext</title>
 		<link href="css/styles.css" rel="stylesheet" />
-		<script src="js/object-assign.js"></script>
 
-		<script src="https://boffinhouse.github.io/rawblock/sources/js/libs/rb-life.js"></script>
+		<script>
+			(function(docElem){
+				docElem.classList.add('js');
+				docElem.classList.remove('no-js');
+			})(document.documentElement);
+		</script>
 	</head>
 	<body>
 		<header class="rb-page-header">
@@ -22,7 +26,7 @@
 						<label>
 							<input type="radio" name="domlib"
 							       value="rbdom"
-							       data-url="https://boffinhouse.github.io/rawblock/sources/js/libs/dom.js"
+							       data-url="https://boffinhouse.github.io/rawblock/sources/js/libs/rb_$.js"
 							       checked />
 							rbdom
 						</label>
@@ -59,6 +63,13 @@
 				document.write('<script src="' + input.getAttribute('data-url') +'"><\/script>');
 			})();
 		</script>
-		<!--<script src="../sources/js/modules/rb_richtext.js"></script>-->
+		<script src="https://boffinhouse.github.io/rawblock/sources/js/libs/rb_crucial.js"></script>
+		<script src="https://boffinhouse.github.io/rawblock/sources/js/libs/rb_main.js"></script>
+
+		<!--<script src="../sources/components/rb_richtext/rb_richtext.js"></script>-->
+
+		<script>
+			rb.life.init();
+		</script>
 	</body>
 </html>
